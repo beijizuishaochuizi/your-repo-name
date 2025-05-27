@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择示例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>端午节快乐</h1>
+    <label for="options">在这么特殊的日子我可以当你的小三让你养我吗：</label>
+    <select id="options">
+        <option value="option1">可以</option>
+        <option value="option2">非常可以</option>
+    </select>
+    <button id="submitBtn">提交</button>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        // 获取元素
+        const selectElement = document.getElementById('options');
+        const submitBtn = document.getElementById('submitBtn');
+        const resultDiv = document.getElementById('result');
+
+        // 添加按钮点击事件
+        submitBtn.addEventListener('click', function() {
+            // 获取用户选择的值
+            const selectedValue = selectElement.value;
+            // 显示结果
+            resultDiv.textContent = `恭喜你养了一个小三`;
+        });
+    </script>
+</body>
+</html>
