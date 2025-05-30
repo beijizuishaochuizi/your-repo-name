@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>端午节互动页面</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #000; /* 设置背景颜色 */
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        #message {
+            font-size: 1.5em;
+            margin-top: 20px;
+            display: none; /* 默认隐藏 */
+        }
+
+        @keyframes fireworks {
+            0%, 100% {
+                color: white;
+            }
+            25% {
+                color: red;
+            }
+            50% {
+                color: blue;
+            }
+            75% {
+                color: green;
+            }
+        }
+
+        .fireworks {
+            animation: fireworks 5s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <audio id="background-music" loop>
+            <source src="background-music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <h1>端午节快乐！</h1>
+        <p>我做你小三你可以养我吗？</p>
+        <button id="option1">可以</button>
+        <button id="option2">非常可以</button>
+        <div id="message" class="fireworks">端午节快乐，感谢你愿意养我！</div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const option1 = document.getElementById('option1');
+            const option2 = document.getElementById('option2');
+            const message = document.getElementById('message');
+            const backgroundMusic = document.getElementById('background-music');
+
+            backgroundMusic.play();
+
+            option1.addEventListener('click', showFireworks);
+            option2.addEventListener('click', showFireworks);
+
+            function showFireworks() {
+                message.style.display = 'block'; // 显示感谢信息
+                message.classList.add('fireworks'); // 添加烟花效果
+            }
+        });
+    </script>
+</body>
+</html>
